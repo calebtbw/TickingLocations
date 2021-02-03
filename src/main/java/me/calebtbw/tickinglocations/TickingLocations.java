@@ -47,10 +47,11 @@ public final class TickingLocations extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent e) {
         if (e instanceof Player) {
-            Location from = e.getFrom();
-            Location to = e.getTo();
+            Player player = e.getPlayer();
+            Location from = e.getPlayer().getLocation();
+            Location to = e.getPlayer().getLocation();
 
-            getLogger().info(String.format("From %.2f,%.2f,%.2f to %.2f,%.2f,%.2f", from.getX(), from.getY(), from.getZ(), to.getX(), to.getY(), to.getZ()));
+            getLogger().info(player.getName() + " moved from " + from + "to" + to);
         }
     }
 
@@ -74,19 +75,5 @@ public final class TickingLocations extends JavaPlugin implements Listener {
 
             getLogger().info(player.getName() + " broke a chest at " + loc);
         }
-    }
-
-    @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (command.getName().equalsIgnoreCase("tickclear")) {
-            Player player = (Player) sender;
-            if (player.isOp()) {
-                player.getWorld().getEntities().clear();
-
-                player.sendMessage("Cleared all Entities!");
-                getLogger().info(player.getName() + " has cleared all entities!");
-
-            }
-        } return false;
     }
 }

@@ -46,13 +46,12 @@ public final class TickingLocations extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent e) {
-        if (e instanceof Player) {
-            Player player = e.getPlayer();
-            Location from = e.getPlayer().getLocation();
-            Location to = e.getPlayer().getLocation();
+       Player player = e.getPlayer();
+        Block block = e.getBlock();
+        Material mat = block.getType();
+        Location loc = e.getPlayer().getLocation();
 
-            getLogger().info(player.getName() + " moved from " + from + "to" + to);
-        }
+        getLogger().info(player.getName() + " placed a " + mat + " at " + loc);
     }
 
     @EventHandler

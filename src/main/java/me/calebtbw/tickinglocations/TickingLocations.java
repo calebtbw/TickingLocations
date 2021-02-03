@@ -81,7 +81,7 @@ public final class TickingLocations extends JavaPlugin implements Listener {
         if (command.getName().equalsIgnoreCase("tickclear")) {
             Player player = (Player) sender;
             if (player.isOp()) {
-                getServer().getWorld("null").getEntities().clear();
+                player.getWorld().getEntities().clear();
 
                 player.sendMessage("Cleared all Entities!");
                 getLogger().info(player.getName() + " has cleared all entities!");

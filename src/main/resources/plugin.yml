@@ -5,6 +5,3 @@ api-version: 1.16
 authors: [ CalebT ]
 description: Getting the location of every block placed in your server
 website: http://calebtbw.me
-commands:
-  tickclear:
-    description: Clears Entities in your world.
